@@ -1,8 +1,17 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
+import type { ITechnology } from "./types/technology";
+import Technologies from "./components/Technologies";
+
+const technologyFetch = async ():Promise<ITechnology[]> => {
+  const res = await fetch("/data.json");
+  const data = await res.json();
+  return data;
+};
 
 function App() {
+  const [technologyPromise]= useState(technologyFetch())
   return (
     <>
       <Suspense
@@ -14,6 +23,7 @@ function App() {
       >
         <Navbar />
         <Banner />
+        <Technologies technologyPromise={technologyPromise}/>
       </Suspense>
     </>
   );
