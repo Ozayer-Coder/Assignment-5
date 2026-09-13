@@ -44,7 +44,7 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
           Pick one technology per category to build your ideal stack.
         </p>
       </div>
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 gap-12">
         <div className="col-span-9">
           <AvilableTechnologies
             technologies={technologies}
