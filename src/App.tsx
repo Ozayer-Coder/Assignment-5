@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import type { ITechnology } from "./types/technology";
 import Technologies from "./components/Technologies";
+import Footer from "./components/Footer";
 
 
 const technologyFetch = async ():Promise<ITechnology[]> => {
@@ -25,6 +26,7 @@ function App() {
         <Navbar />
         <Banner />
         <Technologies technologyPromise={technologyPromise}/>
+        <Footer/>
       </Suspense>
     </>
   );

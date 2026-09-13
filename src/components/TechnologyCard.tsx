@@ -40,7 +40,6 @@ export default function TechnologyCard({
           </p>
         </div>
         <button
-          disabled={isAdded}
           onClick={() => handleAddToStack(technology)}
           className={`btn ${isAdded ? "btn  text-pink-700" : " rounded-lg bg-[#0A0F1D] text-white"} p-2.5 font-medium text-[12px]`}
         >
