@@ -11,9 +11,14 @@ export interface TechnologiesProps {
 export default function Technologies({ technologyPromise }: TechnologiesProps) {
   const technologies = use(technologyPromise);
   const [selected, setSelected] = useState<ITechnology[]>([]);
+  const handleRemoveAll = (): void => {
+    setSelected([]);
+  };
   const handleRemoveFromStack = (id: string): void => {
-    const restSelectedItems = selected.filter((item:ITechnology) => item.id !== id);
-    setSelected(restSelectedItems)
+    const restSelectedItems = selected.filter(
+      (item: ITechnology) => item.id !== id,
+    );
+    setSelected(restSelectedItems);
   };
 
   const handleAddToStack = (technology: ITechnology): void => {
@@ -53,12 +58,14 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
           <AvilableTechnologies
             technologies={technologies}
             handleAddToStack={handleAddToStack}
+            selected={selected}
           ></AvilableTechnologies>
         </div>
         <div className="col-span-3">
           <YourStack
             selected={selected}
             handleRemoveFromStack={handleRemoveFromStack}
+            handleRemoveAll={handleRemoveAll}
           ></YourStack>
         </div>
       </div>

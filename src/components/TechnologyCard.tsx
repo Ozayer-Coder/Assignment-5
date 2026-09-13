@@ -4,11 +4,13 @@ import type { ITechnology } from "../types/technology";
 export interface TechnologyCardProps {
   technology: ITechnology;
   handleAddToStack: (technology: ITechnology) => void;
+  isAdded: boolean;
 }
 
 export default function TechnologyCard({
   technology,
   handleAddToStack,
+  isAdded,
 }: TechnologyCardProps) {
   return (
     <div className="flex flex-col p-5 border rounded-2xl border-[#F1F5F9]">
@@ -38,10 +40,11 @@ export default function TechnologyCard({
           </p>
         </div>
         <button
+          disabled={isAdded}
           onClick={() => handleAddToStack(technology)}
-          className={`btn rounded-lg bg-[#0A0F1D] p-2.5 text-white font-medium text-[12px]`}
+          className={`btn ${isAdded ? "btn  text-pink-700" : " rounded-lg bg-[#0A0F1D] text-white"} p-2.5 font-medium text-[12px]`}
         >
-          Add to Stack
+          {isAdded ? "✓ Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </div>

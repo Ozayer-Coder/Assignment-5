@@ -3,14 +3,16 @@ import type { ITechnology } from "../types/technology";
 interface IYousrStackCard {
   selected: ITechnology[];
   handleRemoveFromStack: (id: string) => void;
+  handleRemoveAll: () => void;
 }
 const YoursStackCard = ({
   selected,
   handleRemoveFromStack,
+  handleRemoveAll,
 }: IYousrStackCard) => {
   if (selected.length === 0) {
     return (
-      <div className="p-6 flex justify-center items-center border border-[#E2E8F0] rounded-3xl my-4 ">
+      <div className="p-6 flex justify-center items-center border border-dashed border-[#E2E8F0] rounded-3xl my-4 ">
         <h4 className="text-lg text-[#94A3B8]">Your stack is empty</h4>
       </div>
     );
@@ -30,14 +32,20 @@ const YoursStackCard = ({
                   </p>
                 </div>
               </div>
-              <button onClick={()=>handleRemoveFromStack(selectedItem.id)} className="cursor-pointer btn ">
+              <button
+                onClick={() => handleRemoveFromStack(selectedItem.id)}
+                className="cursor-pointer btn "
+              >
                 <RxCross2 className="text-gray-500" />
               </button>
             </div>
           );
         })}
       </div>
-      <button className="my-10 border-[0.5px] rounded-lg border-[#ED8C85] text-[20px] font-semibold py-2 text-[#D82C20] btn">
+      <button
+        onClick={handleRemoveAll}
+        className="my-10 border-[0.5px] rounded-lg border-[#ED8C85] text-[20px] font-semibold py-2 text-[#D82C20] btn"
+      >
         Remove All
       </button>
     </div>
