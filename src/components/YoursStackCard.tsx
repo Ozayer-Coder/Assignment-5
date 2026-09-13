@@ -2,8 +2,12 @@ import { RxCross2 } from "react-icons/rx";
 import type { ITechnology } from "../types/technology";
 interface IYousrStackCard {
   selected: ITechnology[];
+  handleRemoveFromStack: (id: string) => void;
 }
-const YoursStackCard = ({ selected }: IYousrStackCard) => {
+const YoursStackCard = ({
+  selected,
+  handleRemoveFromStack,
+}: IYousrStackCard) => {
   if (selected.length === 0) {
     return (
       <div className="p-6 flex justify-center items-center border border-[#E2E8F0] rounded-3xl my-4 ">
@@ -26,7 +30,7 @@ const YoursStackCard = ({ selected }: IYousrStackCard) => {
                   </p>
                 </div>
               </div>
-              <button className="cursor-pointer btn ">
+              <button onClick={()=>handleRemoveFromStack(selectedItem.id)} className="cursor-pointer btn ">
                 <RxCross2 className="text-gray-500" />
               </button>
             </div>
