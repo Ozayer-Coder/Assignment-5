@@ -8,7 +8,7 @@ interface IYourStackProps {
 }
 const YourStack = ({ selected, handleRemoveFromStack, handleRemoveAll }: IYourStackProps) => {
   return (
-    <div className="border border-[#F1F5F9] rounded-2xl p-5">
+    <div className="border border-[#F1F5F9] rounded-2xl mx-3 p-2 md:p-4 lg:p-5 text-center md:text-left">
       <h2 className="text-[20px] font-bold">Your Stack</h2>
       <p className="text-[12px] text-[#94A3B8]">
         

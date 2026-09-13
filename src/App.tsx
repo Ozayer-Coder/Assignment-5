@@ -19,7 +19,7 @@ function App() {
       <Suspense
         fallback={
           <div className="flex justify-center items-center min-h-screen">
-            <p className="text-6xl font-bold text-gray-500">Loading......</p>
+            <p className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-500">Loading......</p>
           </div>
         }
       >

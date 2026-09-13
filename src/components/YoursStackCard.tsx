@@ -13,7 +13,7 @@ const YoursStackCard = ({
   if (selected.length === 0) {
     return (
       <div className="p-6 flex justify-center items-center border border-dashed border-[#E2E8F0] rounded-3xl my-4 ">
-        <h4 className="text-lg text-[#94A3B8]">Your stack is empty</h4>
+        <h4 className="text-sm  text-[#94A3B8]">Your stack is empty</h4>
       </div>
     );
   }

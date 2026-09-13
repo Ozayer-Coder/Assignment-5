@@ -1,8 +1,9 @@
+import { FaBars } from "react-icons/fa";
 import Logo from "../assets/logo-text.png";
 const Navbar = () => {
   return (
     <div className="sticky top-0 z-50 bg-white">
-      <div className="flex justify-between items-center container mx-auto py-4">
+      <div className="hidden md:flex justify-between items-center container mx-auto py-4">
         <div>
           <img src={Logo} alt="" />
         </div>
@@ -23,6 +24,17 @@ const Navbar = () => {
             Contact
           </a>
         </div>
+        <div className="flex gap-2">
+          <button className="cursor-pointer">Sign In</button>
+          <button className="btn bg-[#D91B7E] rounded-full text-white">
+            Sign Up
+          </button>
+        </div>
+      </div>
+
+      <div className="flex md:hidden justify-between items-center w-full  px-4 py-4">
+        <FaBars />
+        <img src={Logo} alt="" className="min-w-26" />
         <div className="flex gap-2">
           <button className="cursor-pointer">Sign In</button>
           <button className="btn bg-[#D91B7E] rounded-full text-white">

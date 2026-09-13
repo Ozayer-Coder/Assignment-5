@@ -13,7 +13,7 @@ export default function TechnologyCard({
   isAdded,
 }: TechnologyCardProps) {
   return (
-    <div className="flex flex-col p-5 border rounded-2xl border-[#F1F5F9]">
+    <div className="flex flex-col p-5 mx-3 border rounded-2xl border-[#F1F5F9]">
       <div className="flex flex-col gap-1.5 pb-4">
         <div className="flex justify-between ">
           <img className="max-h-12" src={technology.icon} alt="" />

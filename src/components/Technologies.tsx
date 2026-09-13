@@ -13,12 +13,34 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
   const [selected, setSelected] = useState<ITechnology[]>([]);
   const handleRemoveAll = (): void => {
     setSelected([]);
+    toast.success("Cleared Full Stack", {
+      position: "bottom-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
   };
   const handleRemoveFromStack = (id: string): void => {
     const restSelectedItems = selected.filter(
       (item: ITechnology) => item.id !== id,
     );
     setSelected(restSelectedItems);
+    toast.success("Successefully Removed", {
+      position: "bottom-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   const handleAddToStack = (technology: ITechnology): void => {
@@ -41,9 +63,9 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
     setSelected([...selected, technology]);
   };
   return (
-    <div className="container mx-auto my-28 flex flex-col gap-10">
-      <div>
-        <h2 className="font-extrabold text-4xl">
+    <div className="container mx-auto my-10 md:20 lg:28 flex flex-col gap-10">
+      <div className="text-center md:text-left">
+        <h2 className="font-extrabold text-2xl md:text-3xl lg:text-4xl">
           Explore the{" "}
           <span className="bg-linear-to-r from-[#EC4899]  to-[#8B5CF6] bg-clip-text text-transparent">
             Technologies
@@ -53,15 +75,15 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
           Pick one technology per category to build your ideal stack.
         </p>
       </div>
-      <div className="grid grid-cols-12 gap-12">
-        <div className="col-span-9">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-4 md:gap-8 lg:gap-12 ">
+        <div className="md:col-span-2 lg:col-span-9">
           <AvilableTechnologies
             technologies={technologies}
             handleAddToStack={handleAddToStack}
             selected={selected}
           ></AvilableTechnologies>
         </div>
-        <div className="col-span-3">
+        <div className="md:col-span-1 lg:col-span-3">
           <YourStack
             selected={selected}
             handleRemoveFromStack={handleRemoveFromStack}
