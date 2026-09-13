@@ -1,7 +1,7 @@
-=> Name of your project: Dev Stack
-=> This is an intereactive webpage where anyone can add technologies in the Your Stack section and also remove them from there.
-=> Technologies I used: React, TypeScript, Tailwind Css, Daisy Ui, React icons, React Toastify, etc.
-=> 3 features of this project : 1. You can Add any technology to Your Stach section by clicking Add to Stack button.
+1. => Name of your project: Dev Stack
+2. => This is an intereactive webpage where anyone can add technologies in the Your Stack section and also remove them from there.
+3. => Technologies I used: React, TypeScript, Tailwind Css, Daisy Ui, React icons, React Toastify, etc.
+4. => 3 features of this project : 1. You can Add any technology to Your Stach section by clicking Add to Stack button.
                                 2. You can remove any technology to Your Stach section by clicking Cross button.
                                 3. You can remove all Stack that you choosen by one click using Remove All button.
 
