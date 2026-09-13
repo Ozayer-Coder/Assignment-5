@@ -1,6 +1,8 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { ITechnology } from "../types/technology";
-import TechnologyCard from "./TechnologyCard";
+import YourStack from "./YourStack";
+import AvilableTechnologies from "./AvilableTechnologies";
+import { Bounce, toast } from "react-toastify";
 
 export interface TechnologiesProps {
   technologyPromise: Promise<ITechnology[]>;
@@ -8,7 +10,27 @@ export interface TechnologiesProps {
 
 export default function Technologies({ technologyPromise }: TechnologiesProps) {
   const technologies = use(technologyPromise);
+  const [selected, setSelected] = useState<ITechnology[]>([]);
 
+  const handleAddToStack = (technology: ITechnology): void => {
+    const alreadyAdded = selected.find((item) => item.id === technology.id);
+    if (alreadyAdded) {
+      toast.warn("Already Added", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+
+      return;
+    }
+    setSelected([...selected, technology]);
+  };
   return (
     <div className="container mx-auto mt-28 flex flex-col gap-10">
       <div>
@@ -18,13 +40,20 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
             Technologies
           </span>
         </h2>
-        <p className="text-[16px] text-[#64748B]">Pick one technology per category to build your ideal stack.</p>
+        <p className="text-[16px] text-[#64748B]">
+          Pick one technology per category to build your ideal stack.
+        </p>
       </div>
-
-      <div className="grid grid-cols-3 gap-4">
-        {technologies.map((technology: ITechnology) => (
-          <TechnologyCard key={technology.id} technology={technology} />
-        ))}
+      <div className="grid grid-cols-12">
+        <div className="col-span-9">
+          <AvilableTechnologies
+            technologies={technologies}
+            handleAddToStack={handleAddToStack}
+          ></AvilableTechnologies>
+        </div>
+        <div className="col-span-3">
+          <YourStack selected={selected}></YourStack>
+        </div>
       </div>
     </div>
   );

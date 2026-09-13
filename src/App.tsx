@@ -4,6 +4,7 @@ import Banner from "./components/Banner";
 import type { ITechnology } from "./types/technology";
 import Technologies from "./components/Technologies";
 
+
 const technologyFetch = async ():Promise<ITechnology[]> => {
   const res = await fetch("/data.json");
   const data = await res.json();
