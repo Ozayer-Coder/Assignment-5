@@ -61,6 +61,17 @@ export default function Technologies({ technologyPromise }: TechnologiesProps) {
       return;
     }
     setSelected([...selected, technology]);
+    toast.success("Added to Stack", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
   };
   return (
     <div className="container mx-auto my-10 md:20 lg:28 flex flex-col gap-10">
