@@ -22,7 +22,7 @@ const YoursStackCard = ({
       <div className="my-1 flex flex-col gap-2">
         {selected.map((selectedItem) => {
           return (
-            <div className="flex justify-between items-center border rounded-2xl border-[#E2E8F0] p-2.5">
+            <div key={selectedItem.id} className="flex justify-between items-center border rounded-2xl border-[#E2E8F0] p-2.5">
               <div className="flex items-center gap-4">
                 <img src={selectedItem.icon} alt="" className="max-h-12" />
                 <div className="flex flex-col">
